@@ -82,11 +82,13 @@ Setelah meninjau kode saya, ada aspek yang dapat ditingkatkan terkait validasi i
 <summary>Reflection 2</summary>
 
 * Unit Test & Code Coverage
+
 Setelah menulis _unit test_, saya merasa lebih percaya diri tentang kebenaran kode saya. _Unit test_ membantu memastikan setiap komponen dari kode bekerja seperti yang diharapkan dan membantu mengeliminasi kesalahan dari kode saya. Jumlah _unit test_ yang dibutuhkan tergantung pada banyaknya fungsi yang ada, biasanya minimal setiap fungsi memiliki satu unit test.
 
 Untuk memastikan unit test kita cukup untuk memverifikasi program kita, kita bisa menggunakan alat analisis _code coverage_. _Code coverage_  mengukur persentase kode sumber yang dijalankan oleh tes kita. Meskipun memiliki _code coverage_ 100%, tidak menjamin bahwa kode kita bebas dari _error_. Kita dapat menggabungkan _code coverage_ dengan teknik pengujian lainnya agar pengujiannya lebih menyeluruh.Teknik ini membantu mengidentifikasi masalah potensial dan memastikan kode berfungsi dengan benar. 
 
 * Number of Items in the Product List
+
 Ketika kita membuat rangkaian _functional test_ baru yang mirip dengan yang sudah ada, ada kemungkinan untuk menimbulkan beberapa masalah baru yang terkait dengan duplikasi kode, yang dapat mengakibatkan beban pemeliharaan yang meningkat dan penurunan kebersihan serta kualitas kode.
 
 Solusi yang dapat kita terapkan adalah dengan melakukan refaktor kode untuk membuat fungsi yang dapat digunakan kembali sehingga kita dapat menghindari duplikasi kode di berbagai rangkaian uji. Selain itu, menggunakan inheritance untuk berbagi kode antara berbagai rangkaian uji juga dapat membantu mengurangi duplikasi. Lalu kita juga dapat mengorganisir rangkaian _functional test_ dengan baik dan mempertimbangkan pengujian otomatis untuk menjaga konsistensi dan mempercepat siklus pengujian.
