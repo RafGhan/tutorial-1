@@ -36,10 +36,11 @@ public class ProductControllerTest {
     @Test
     void testEditProductPage(){
         Product product = new Product();
+        String id = product.getProductId();
 
-        when(productService.findById(product.getProductId())).thenReturn(product);
+        when(productService.findById(id)).thenReturn(product);
         String expectedName = "editProduct";
-        assertEquals(expectedName, productController.editProductPage(product.getProductId(), model));
+        assertEquals(expectedName, productController.editProductPage(id, model));
         verify(model, times(1)).addAttribute("product", product);
     }
 
@@ -65,6 +66,7 @@ public class ProductControllerTest {
     void testEditProductPost() {
         Product product = new Product();
         String expectedName = "redirect:list";
+
         assertEquals(expectedName, productController.editProductPost(product, model));
         verify(productService, times(1)).editProduct(product);
     }
@@ -73,7 +75,9 @@ public class ProductControllerTest {
     void testDeleteProduct() {
         Product product = new Product();
         String expectedName = "redirect:../list";
-        assertEquals(expectedName, productController.deleteProduct(product.getProductId(), model));
-        verify(productService, times(1)).deleteProduct(product.getProductId());
+        String id = product.getProductId();
+
+        assertEquals(expectedName, productController.deleteProduct(id, model));
+        verify(productService, times(1)).deleteProduct(id);
     }
 }
