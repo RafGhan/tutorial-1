@@ -111,4 +111,10 @@ public class ProductRepositoryTest {
         Iterator<Product> productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
+
+    @Test
+    void testDeleteProductNotFound() {
+        assertThrows(IllegalArgumentException.class, () ->
+                productRepository.delete("6f1238f8-d13a-4e5b-936f-e55156158104"));
+    }
 }

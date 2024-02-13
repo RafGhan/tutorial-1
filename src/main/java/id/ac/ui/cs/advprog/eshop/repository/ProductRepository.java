@@ -26,7 +26,7 @@ public class ProductRepository{
                 return product;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Product doesn't exist");
     }
 
     public Product edit(Product editedProduct) {
