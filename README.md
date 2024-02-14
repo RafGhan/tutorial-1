@@ -1,4 +1,12 @@
-# Tutorial 1
+# Tutorial Advanced Programming
+
+### Rafi Ghani Harditama
+### 2206081364
+### Advanced Programming A / VRO 
+
+[Link Website](https://eshop-rafghan.koyeb.app/)
+
+## Tutorial 1
 
 <details>
 <summary>Reflection 1</summary>
@@ -94,4 +102,24 @@ Ketika kita membuat rangkaian _functional test_ baru yang mirip dengan yang suda
 Solusi yang dapat kita terapkan adalah dengan melakukan refaktor kode untuk membuat fungsi yang dapat digunakan kembali sehingga kita dapat menghindari duplikasi kode di berbagai rangkaian uji. Selain itu, menggunakan inheritance untuk berbagi kode antara berbagai rangkaian uji juga dapat membantu mengurangi duplikasi. Lalu kita juga dapat mengorganisir rangkaian _functional test_ dengan baik dan mempertimbangkan pengujian otomatis untuk menjaga konsistensi dan mempercepat siklus pengujian.
 </details>
 
-# Tutorial 2
+## Tutorial 2
+
+<details>
+<summary>Reflection 1</summary>
+
+* List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+
+    + Tabel pada halaman List Produk tidak memiliki deskripsi. Dapat ditambahkan elemen `<caption>` ke dalam tabel untuk memberikan deskripsi singkat tentang konten tabel tersebut.
+
+    + Field Injection seperti `@Autowired` menyisipkan dependensi ke dalam sebuah kelas melalui properti atau field. Fied injection dapat menyebabkan ketidakjelasan ketergantungan serta kesulitan dalam pengujian. Untuk memperbaiki masalah tersebut dapat dilakukan dengan mengubah field injection menjadi constructor injection pada kelas controller dan service
+
+    + Modifier public pada unit test. Untuk memperbaiki masalah tersebut dapat dilakukan dengan menghapus semua modifier public pada semua kelas test. 
+
+    + Menambahkan Assertion pada `EshopApplicationTests.java`
+
+    + Menghapus semua importan yang tidak terpakai penting untuk menjaga kebersihan dan keterbacaan kode. Importan yang tidak digunakan dapat menyebabkan overhead yang tidak perlu dalam kompilasi dan dapat membingungkan pembaca kode. Oleh karena itu, menghapus impor yang tidak digunakan adalah _best practice_ dalam pengembangan perangkat lunak berbasis Java.
+
+* Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment? Explain the reasons (minimum 3 sentences)!
+
+Menurut saya, implementasi yang saya gunakan telah memenuhi konsep CI/CD dengan menggunakan GitHub Workflows. Setiap kali saya melakukan perubahan yang di push atau pull request ke repository GitHub, secara otomatis akan dilakukan test yang sudah ditentukan dalam ci.yml dan dianalis dengan SonarCloud. Jika pengecekan berhasil, baru bisa dilakukan pull request. Hal tersebut sudah memenuhi konsep Continous Integration yang berguna untuk memastikan setiap perubahan kode tidak merubah fungsionalitasnya. Selain itu, saya juga sudah menerapkan Continous Delivery dengan melakukan deploy secara otomatis ke PaaS Koyeb. 
+</details>
