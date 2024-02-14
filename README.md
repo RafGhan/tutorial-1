@@ -93,3 +93,5 @@ Ketika kita membuat rangkaian _functional test_ baru yang mirip dengan yang suda
 
 Solusi yang dapat kita terapkan adalah dengan melakukan refaktor kode untuk membuat fungsi yang dapat digunakan kembali sehingga kita dapat menghindari duplikasi kode di berbagai rangkaian uji. Selain itu, menggunakan inheritance untuk berbagi kode antara berbagai rangkaian uji juga dapat membantu mengurangi duplikasi. Lalu kita juga dapat mengorganisir rangkaian _functional test_ dengan baik dan mempertimbangkan pengujian otomatis untuk menjaga konsistensi dan mempercepat siklus pengujian.
 </details>
+
+# Tutorial 2
