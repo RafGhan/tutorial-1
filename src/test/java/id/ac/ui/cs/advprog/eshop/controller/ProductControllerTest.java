@@ -67,7 +67,7 @@ class ProductControllerTest {
         Product product = new Product();
         String expectedName = "redirect:list";
 
-        assertEquals(expectedName, productController.editProductPost(product, model));
+        assertEquals(expectedName, productController.editProductPost(product));
         verify(productService, times(1)).editProduct(product);
     }
 
@@ -77,7 +77,7 @@ class ProductControllerTest {
         String expectedName = "redirect:../list";
         String id = product.getProductId();
 
-        assertEquals(expectedName, productController.deleteProduct(id, model));
+        assertEquals(expectedName, productController.deleteProduct(id));
         verify(productService, times(1)).deleteProduct(id);
     }
 }
