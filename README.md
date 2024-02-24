@@ -129,13 +129,15 @@ Menurut saya, implementasi yang saya gunakan telah memenuhi konsep CI/CD dengan 
 <summary>Reflection</summary>
 
 * Explain what principles you apply to your project!
-    + **Single Responsibility Principle(SRP)** : Saya mengimplementasikan SRP dengan memisahkan `Product Controller` dan `Car Controller` yang awalnya berada pada 1 file yang sama menjadi terpisah di filenya masing-masing. 
+    + **Single Responsibility Principle(SRP)** : Saya mengimplementasikan SRP dengan memisahkan `Product Controller` dan `Car Controller` yang awalnya berada pada 1 file yang sama menjadi terpisah di filenya masing-masing. Hal tersebut bertujuan untuk memastikan bahwa setiap kelas memiliki tanggung jawabnya sendiri.
     + **Interface Segregation Principle(ISP)** : Saya menerapkan prinsip ISP dengan memisahkan interface `Product Controller` dan interface `Car Controller`. Hal tersebut bertujuan untuk memastikan setiap interface hanya memiliki tanggung jawab yang sesuai dengan kebutuhan modul yang mengimplementasikannya. Sehingga kelas yang berhubungan dengan produk dan yang berhubungan dengan mobil dapat fokus pada tugasnya masing-masing tanpa harus terbebani oleh fungsi yang lain
     + **Dependency Inversion Principle(DIP)** : Saya menerapkan prinsip DIP dengan mengubah `private CarServiceImpl carService;` menjadi `private CarService carService;` pada file `CarController.java`. Hal tersebut saya lakukan untuk menghindari adanya masalah ketika saya melakukan perubahan di `CarServiceImpl`
 
 * Explain the advantages of applying SOLID principles to your project with examples.
+
     Dengan menerapkan SOLID principles, kode saya menjadi lebih rapi dan bersih sehingga mudah dibaca dan dipahami. Contohnya pada tugas saya ini adalah ketika saya memisahkan `Product Controller` dan `Car Controller`. Awalnya kedua kelas tersebut berada pada satu file yang sama sehingga kode tersebut menjadi sulit untuk dibaca dan dipahami karena sangat kompleks dan panjang. Oleh karena itu, dengan memisahkan kedua class tersebut dapat memudahkan kita untuk membaca dan memahami kode tersebut. Selain itu, kode juga lebih aman ketika ada perubahan karena setiap komponen pada kode saya sudah menjalankan tugasnya masing-masing dan tidak akan merusak kode lain ketika ada perubahan. 
     
 * Explain the disadvantages of not applying SOLID principles to your project with examples.
+
     Jika kita tidak menerapkan SOLID principles pada kode kita, maka kode akan lebih sulit untuk dibaca dan dipahami. Selain itu, kode kita akan lebih sulit untuk dirawat juga. Belum lagi ketika kode kita saling bergantung satu sama lain sehingga ketika kita mengubah sesuatu dapat berdampak langsung ke kode lainnya. Contohnya ketika `CarController` masih bergantung pada `CarServiceImpl`, ketika ada perubahan di `CarServiceImpl` maka akan langsung berdampak dan dapat menyebabkan kerusakan di `CarController` 
 </details>
