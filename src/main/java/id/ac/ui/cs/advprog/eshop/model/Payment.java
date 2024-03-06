@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -19,7 +21,7 @@ public class Payment {
     String status;
 
     public Payment(String id, String method, Order order, Map<String, String> paymentData) {
-        this(id, method, order, paymentData, "PENDING");
+        this(id, method, order, paymentData, PaymentStatus.PENDING.getValue());
     }
 
     public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
@@ -40,13 +42,18 @@ public class Payment {
     public void setStatus(String status) {
         List<String> statusList = Arrays.asList("PENDING", "SUCCESS", "REJECTED");
 
-        if (!statusList.contains(status)) {
+        if (!PaymentStatus.contains(status)) {
             throw new IllegalArgumentException("Invalid payment status");
         }
         this.status = status;
     }
 
     protected void setPaymentData(Map<String, String> paymentData) {
+        if (PaymentMethod.contains(this.method)) {
+            throw new IllegalArgumentException(
+                "Can't assign payment data to a method when the payment method is not specified"
+            );
+        }
         this.paymentData = null;
     }
 }
