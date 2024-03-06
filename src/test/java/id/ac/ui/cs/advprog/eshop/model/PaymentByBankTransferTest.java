@@ -3,6 +3,7 @@ package id.ac.ui.cs.advprog.eshop.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,36 +38,36 @@ public class PaymentByBankTransferTest {
             products, 1708560000L, "Bambang Sugeni");
         orders.add(order1);
         Order order2 = new Order("7f9e15bb-4b15-42f4-aebc-c3af385fb078",
-            products, 1708570000L, "Tatang Sutanto");
+            products, 1708570000L, "Tatang Wijonarko");
         orders.add(order2);
         Order order3 = new Order("e334ef40-9eff-4da8-9487-8ee697ecbf1e",
-            products, 1708570000L, "Bambang Sugeni");
+            products, 1708570000L, "Bambang Himawan");
         orders.add(order3);
     }
 
     @Test
     void testCreatePaymentByBankTransferSuccessful() {
         Map<String, String> paymentDataBankTransfer = new HashMap<>();
-        paymentDataBankTransfer.put("bankName", "FLEECA");
+        paymentDataBankTransfer.put("bankName", "BSI");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
-        Payment payment = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(0), "BANK", paymentDataBankTransfer);
+        Payment payment = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(0), PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         assertSame(orders.get(0), payment.getOrder());
         assertEquals(paymentDataBankTransfer, payment.getPaymentData());
         assertEquals("02657834-7df4-4ad4-b164-4bb6be61cf7f", payment.getId());
-        assertEquals("BANK", payment.getMethod());
+        assertEquals(PaymentMethod.BANK.getValue(), payment.getMethod());
     }
 
     @Test
     void testCreatePaymentBankTransferWithStatus() {
         Map<String, String> paymentDataBankTransfer = new HashMap<>();
-        paymentDataBankTransfer.put("bankName", "FLEECA");
+        paymentDataBankTransfer.put("bankName", "BSI");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
-        PaymentByBankTransfer paymentBankTransfer = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f",orders.get(0), "BANK", paymentDataBankTransfer, PaymentStatus.SUCCESS.getValue());
+        PaymentByBankTransfer paymentBankTransfer = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f",orders.get(0), PaymentMethod.BANK.getValue(), paymentDataBankTransfer, PaymentStatus.SUCCESS.getValue());
         assertSame(orders.get(0), paymentBankTransfer.getOrder());
         assertEquals("02657834-7df4-4ad4-b164-4bb6be61cf7f", paymentBankTransfer.getId());
-        assertEquals("BANK", paymentBankTransfer.getMethod());
+        assertEquals(PaymentMethod.BANK.getValue(), paymentBankTransfer.getMethod());
         assertEquals(paymentDataBankTransfer, paymentBankTransfer.getPaymentData());
         assertEquals(PaymentStatus.SUCCESS.getValue(), paymentBankTransfer.getStatus());
     }
@@ -78,18 +79,18 @@ public class PaymentByBankTransferTest {
         paymentDataBankTransfer.put("referenceCode", "0123456789");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
-            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),"BANK", paymentDataBankTransfer);
+            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         });
     }
 
     @Test
     void testCreatePaymentFailedEmptyReferenceCode() {
         Map<String, String> paymentDataBankTransfer = new  HashMap<>();
-        paymentDataBankTransfer.put("bankName", "BNI");
+        paymentDataBankTransfer.put("bankName", "BSI");
         paymentDataBankTransfer.put("referenceCode", "");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
-            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),"BANK", paymentDataBankTransfer);
+            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         });
     }
 }
