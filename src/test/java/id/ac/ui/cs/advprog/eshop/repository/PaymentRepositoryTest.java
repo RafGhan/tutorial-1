@@ -1,4 +1,5 @@
 package id.ac.ui.cs.advprog.eshop.repository;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Payment;
@@ -49,13 +50,13 @@ class PaymentRepositoryTest {
 
         Map<String, String> paymentDataVoucher = new HashMap<>();
         paymentDataVoucher.put("voucherCode", "ESHOP697A71B273C");
-        Payment voucher = new Payment("2b366516-7527-4d5a-bc0f-0c2c7405c2d0", "VOUCHER", orders.get(0), paymentDataVoucher, PaymentStatus.PENDING.getValue());
+        Payment voucher = new Payment("2b366516-7527-4d5a-bc0f-0c2c7405c2d0", PaymentMethod.VOUCHER.getValue(), orders.get(0), paymentDataVoucher, PaymentStatus.PENDING.getValue());
         payments.add(voucher);
 
         Map<String, String> paymentDataBankTransfer = new HashMap<>();
         paymentDataBankTransfer.put("bankName", "BSI");
         paymentDataBankTransfer.put("referenceCode", "69707172");
-        Payment bankTransfer = new Payment("13ae0609-5375-4b51-b2f9-e35b1d02d0a5", "BANK", orders.get(0), paymentDataBankTransfer, PaymentStatus.PENDING.getValue());
+        Payment bankTransfer = new Payment("13ae0609-5375-4b51-b2f9-e35b1d02d0a5", PaymentMethod.BANK.getValue(), orders.get(0), paymentDataBankTransfer, PaymentStatus.PENDING.getValue());
         payments.add(bankTransfer);
     }
 
