@@ -140,4 +140,13 @@ Menurut saya, implementasi yang saya gunakan telah memenuhi konsep CI/CD dengan 
 * Explain the disadvantages of not applying SOLID principles to your project with examples.
 
     Jika kita tidak menerapkan SOLID principles pada kode kita, maka kode akan lebih sulit untuk dibaca dan dipahami. Selain itu, kode kita akan lebih sulit untuk dirawat juga. Belum lagi ketika kode kita saling bergantung satu sama lain sehingga ketika kita mengubah sesuatu dapat berdampak langsung ke kode lainnya. Contohnya ketika `CarController` masih bergantung pada `CarServiceImpl`, ketika ada perubahan di `CarServiceImpl` maka akan langsung berdampak dan dapat menyebabkan kerusakan di `CarController` 
+
+## Tutorial 4
+
+<details>
+<summary>Reflection</summary>
+* Setelah menyelesaikan tutorial di modul ini, saya merasa bahwa pendekatan TDD (Test-Driven Development) sangat bermanfaat karena berkontribusi positif terhadap kualitas kode yang saya hasilkan. Siklus yang terdiri dari tahapan RED, GREEN, dan REFACTOR membuat proses pengembangan menjadi lebih terstruktur dan terarah. Dengan menulis tes sebelum melakukan implementasi, saya terpaksa harus memikirkan dengan lebih rinci tentang perilaku yang diharapkan dari kode saya, serta merencanakan bagaimana kelas akan diimplementasikan sebelumnya. Ini akan sangat membantu dalam membuat implementasi yang lebih baik di kemudian hari. Namun, saya juga menyadari bahwa TDD membutuhkan waktu yang cukup banyak karena cukup sulit dilakukan dan terkadang membingungkan, terutama karena ada keharusan untuk membuat tes terlebih dahulu sebelum implementasi yang pasti.
+
+* Unit test yang telah saya buat dalam tutorial ini sudah menggunakan prinsip F.I.R.S.T dengan baik. Pertama, tes tersebut cepat karena dapat dieksekusi dengan cepat, memberikan umpan balik secara instan tanpa mengganggu alur kerja saya. Selanjutnya, tes tersebut bersifat terisolasi dan independen karena fokus pada satu metode tertentu tanpa memengaruhi tes lainnya, juga mengimplementasikan penggunaan mock. Tes tersebut juga dapat diulang, memastikan hasil yang konsisten, sehingga dapat dianggap sebagai tes yang repeatable. Dengan menggunakan asertion untuk memeriksa output program, masalah dalam kode dapat dengan mudah teridentifikasi berdasarkan hasil asertion, menjadikan tes sebagai self-validating. Terakhir, tes tersebut komprehensif dan tepat waktu karena mencakup semua skenario mungkin termasuk kasus bahagia maupun kasus tidak bahagia.
+</details>
 </details>
