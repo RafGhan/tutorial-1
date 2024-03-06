@@ -38,10 +38,10 @@ class PaymentByVoucherTest {
             products, 1708560000L, "Bambang Sugeni");
         orders.add(order1);
         Order order2 = new Order("7f9e15bb-4b15-42f4-aebc-c3af385fb078",
-            products, 1708570000L, "Tatang Wijonarko");
+            products, 1708570000L, "Tatang Sutarman");
         orders.add(order2);
         Order order3 = new Order("e334ef40-9eff-4da8-9487-8ee697ecbf1e",
-            products, 1708570000L, "Bambang Himawan");
+            products, 1708570000L, "Bambang Sugeni");
         orders.add(order3);
     }
 
@@ -60,7 +60,7 @@ class PaymentByVoucherTest {
     @Test
     void testCreatePaymentVoucherWithStatus() {
         Map<String, String> paymentDataVoucher = new HashMap<>();
-        paymentDataVoucher.put("voucherCode", "EHALOSHOP69727142731");
+        paymentDataVoucher.put("voucherCode", "ESHOP697A71B273C");
 
         PaymentByVoucher paymentVoucherCode = new PaymentByVoucher("ec482653-a0df-48c3-a6bc-e5d352476642", orders.get(0), 
         PaymentMethod.VOUCHER.getValue(), paymentDataVoucher, PaymentStatus.SUCCESS.getValue());
@@ -85,11 +85,11 @@ class PaymentByVoucherTest {
     @Test
     void testCreatePaymentVoucherFailedESHOPStart() {
         Map<String, String> paymentDataVoucher = new HashMap<>();
-        paymentDataVoucher.put("voucherCode", "ESHOP69727142731");
+        paymentDataVoucher.put("voucherCode", "EHALOSHOP69727142731");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
             new PaymentByVoucher("9266bc12-dbd9-4a06-bdcc-a02ea8d702d2",orders.get(1),
-                PaymentMethod.VOUCHER.getValue(), paymentDataVoucher);
+            PaymentMethod.VOUCHER.getValue(), paymentDataVoucher);
         });
     }
 
@@ -100,7 +100,7 @@ class PaymentByVoucherTest {
 
         assertThrows(IllegalArgumentException.class, ()-> {
             new PaymentByVoucher("9266bc12-dbd9-4a06-bdcc-a02ea8d702d2",orders.get(1),
-                PaymentMethod.VOUCHER.getValue(), paymentDataVoucher);
+            PaymentMethod.VOUCHER.getValue(), paymentDataVoucher);
         });
     }
 }
