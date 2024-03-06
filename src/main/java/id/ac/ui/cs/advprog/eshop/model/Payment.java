@@ -49,12 +49,10 @@ public class Payment {
 
     protected void setPaymentData(Map<String, String> paymentData) {
         if (PaymentMethod.contains(this.method)) {
-            throw new IllegalArgumentException(
-                "Can't assign payment data to a method when the payment method is not specified"
-            );
+            this.paymentData = paymentData;
         } 
         else {
-            this.paymentData = null;
+            throw new IllegalArgumentException("Can't assign payment data to a method when the payment method is not specified");
         }
     }
 }
