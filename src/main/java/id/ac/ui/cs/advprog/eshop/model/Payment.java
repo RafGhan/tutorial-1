@@ -36,16 +36,17 @@ public class Payment {
         if (order == null) {
             throw new IllegalArgumentException("Order cannot be null");
         }
-        this.order = order;
+        else {
+            this.order = order;
+        }
     }
 
     public void setStatus(String status) {
-        List<String> statusList = Arrays.asList("PENDING", "SUCCESS", "REJECTED");
-
-        if (!PaymentStatus.contains(status)) {
+        if (PaymentStatus.contains(status)) {
+            this.status = status;
+        } else {
             throw new IllegalArgumentException("Invalid payment status");
         }
-        this.status = status;
     }
 
     protected void setPaymentData(Map<String, String> paymentData) {
@@ -53,7 +54,9 @@ public class Payment {
             throw new IllegalArgumentException(
                 "Can't assign payment data to a method when the payment method is not specified"
             );
+        } 
+        else {
+            this.paymentData = null;
         }
-        this.paymentData = null;
     }
 }
